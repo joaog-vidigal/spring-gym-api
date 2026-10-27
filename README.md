@@ -104,7 +104,7 @@ Authorization: Bearer <seu_token>
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/<seu-usuario>/<nome-do-repo>.git
+git clone https://github.com/joaog-vidigal/<nome-do-repo>.git
 cd <nome-do-repo>
 
 # 2. Configure as variáveis de ambiente (veja a seção abaixo)
@@ -150,4 +150,4 @@ Com a aplicação rodando, acesse:
 
 **João Vidigal**
 
-[![GitHub](https://img.shields.io/badge/GitHub-<seu--usuario>-181717?logo=github)](https://github.com/<seu-usuario>)
+[![GitHub](https://img.shields.io/badge/GitHub-joaog-vidigal-181717?logo=github)](https://github.com/joaog-vidigal)
