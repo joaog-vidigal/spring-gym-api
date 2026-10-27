@@ -1,0 +1,49 @@
+package com.vidigal.sprint_boot_essencials.database.repository;
+
+import com.vidigal.sprint_boot_essencials.database.model.AvaliacoesFisicasEntity;
+import com.vidigal.sprint_boot_essencials.dto.AvaliacoesFisicasProjection;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.NativeQuery;
+
+
+import java.util.List;
+
+public interface IAvaliacoesFisicasRepository extends JpaRepository<AvaliacoesFisicasEntity, Integer> {
+
+
+    //Trazendo tudo de todas as avaliações no BD
+    @NativeQuery(value = """
+        SELECT a.id                 idAluno,
+               a.nome               nomeAluno,
+               af.id                idAvaliacao,
+               af.peso              peso,
+               af.altura            altura,
+               af.percentual_gordura_corporal percentualGorduraCorporal
+        FROM avaliacoes_fisicas af
+        INNER JOIN alunos a
+            ON a.avaliacao_fisica_id = af.id
+        """)
+    List<AvaliacoesFisicasProjection> getAllAvaliacoes();
+
+    //Versão paginada
+    @NativeQuery(value = """
+        SELECT a.id                 idAluno,
+               a.nome               nomeAluno,
+               af.id                idAvaliacao,
+               af.peso              peso,
+               af.altura            altura,
+               af.percentual_gordura_corporal percentualGorduraCorporal
+        FROM avaliacoes_fisicas af
+        INNER JOIN alunos a
+            ON a.avaliacao_fisica_id = af.id
+        """,
+    countQuery = """
+        SELECT count(af.id)
+        FROM avaliacoes_fisicas af
+        INNER JOIN alunos a
+        ON a.avaliacao_fisica_id = af.id
+        """)
+    Page<AvaliacoesFisicasProjection> getAllAvaliacoesPage(Pageable pageable);
+}
