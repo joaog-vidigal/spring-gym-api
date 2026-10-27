@@ -145,13 +145,6 @@ Com a aplicação rodando, acesse:
 
 > A documentação é pública, mas os endpoints da API continuam protegidos: gere um token em `/v1/auth/login` para chamá-los.
 
-## 🗺 Próximos passos
-
-- [ ] Testes unitários e de integração
-- [ ] Migrations com Flyway (substituir `ddl-auto: update`)
-- [ ] Dockerfile + `docker-compose` (API + MySQL)
-- [ ] Validação de entrada com Bean Validation
-- [ ] Pipeline de CI com GitHub Actions
 
 ## 👤 Autor
 
